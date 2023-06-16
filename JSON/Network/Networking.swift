@@ -20,10 +20,10 @@ extension MainViewController {
                 let decoder = JSONDecoder()
                 let document = try decoder.decode(Documents.self, from: data)
                 print(document)
-                self?.showAlert(withStatus: .success)
+                self?.showAlert(withStatus: Alert.success)
             } catch {
                 print(error.localizedDescription)
-                self?.showAlert(withStatus: .failed)
+                self?.showAlert(withStatus: Alert.failed)
             }
         }.resume()
     }

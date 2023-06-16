@@ -9,27 +9,28 @@ import Foundation
 
 // from json2kt.com
 struct Documents: Decodable {
-    let items           : [Items]
+//    let items           : [Items]?
     var itemsTotalCount : Int
     var itemsPerPage    : Int
     var currentPage     : Int
     var pagesTotalCount : Int
+    var asdasd: Int
 }
 
 struct Items: Decodable {
 
-  let eoNumber         : String
+  let eoNumber         : String?
   //let hasSvg           : Bool?
   //let zipFileLength    : String?
-  let publishDateShort : String
-  let complexName      : String
+  let publishDateShort : String?
+  let complexName      : String?
   //let pagesCount       : Int?
   //let pdfFileLength    : Int?
   let jdRegNumber      : String?
   let jdRegDate        : String?
-  let title            : String
-  let viewDate         : String
-  let id               : String
+  let title            : String?
+  let viewDate         : String?
+  let id               : String?
 
  /*
     enum CodingKeys: String, CodingKey {

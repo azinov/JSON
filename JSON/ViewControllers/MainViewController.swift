@@ -25,37 +25,31 @@ enum Link {
 enum Alert {
     case success
     case failed
-    
-    var title: String {
-        switch self {
-        case .success:
-            return "Success"
-        case .failed:
-            return "Failed"
-        }
-    }
-    
-    var message: String {
-        switch self {
-        case .success:
-            return "You can see the results in the Debug area"
-        case .failed:
-            return "You can see error in the Debug area"
-        }
-    }
 }
-
 
 class MainViewController: UIViewController {
     
     override func viewDidLoad() {
-        print(Link.documentsURL.url)
         fetchCourse()
+        
     }
     
     // MARK: - Private Methods (SwiftBook)
     func showAlert(withStatus status: Alert) {
-        let alert = UIAlertController(title: status.title, message: status.message, preferredStyle: .alert)
+ 
+        var title = ""
+        var message = ""
+
+        switch status {
+        case .success:
+            title = "Success"
+            message = "You can see the results in the Debug area"
+        case .failed:
+            title = "Failed"
+            message = "You can see error in the Debug area"
+        }
+                
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default)
         alert.addAction(okAction)
         DispatchQueue.main.async { [unowned self] in
